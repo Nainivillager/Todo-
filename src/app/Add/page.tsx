@@ -18,7 +18,7 @@ export default function page() {
           <input
             type="text"
             name="desc"
-            className="placeholder:italic placeholder: pl-4"
+            className="placeholder:italic placeholder: pl-4 w-full"
             placeholder="Enter the description"
           />
         </label>
