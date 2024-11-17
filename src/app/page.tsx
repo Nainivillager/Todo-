@@ -1,13 +1,19 @@
 "use client";
-import { useRouter } from "next/router";
+
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function Page() {
-  const { push } = useRouter();
-  const handleNavigate = () => {
-    // alert("Yo se alert just for testing");
-    push("/add");
+  const router = useRouter();
+
+  const handleAdd = () => {
+    router.push("/add");
   };
+
+  const handleEdit = () => {
+    router.push("/edit/123"); // Using a dummy ID '123'
+  };
+
   return (
     <div className="border-2 border-black m-6 flex flex-col items-center rounded-lg p-6 bg-gray-100 shadow-lg">
       <div className="text-3xl font-bold bg-slate-300 p-4 rounded-lg shadow-sm mb-8 w-full text-center">
@@ -25,14 +31,17 @@ export default function Page() {
           >
             X
           </button>
-          <button className="bg-yellow-500 text-white px-3 py-1 rounded-lg">
+          <button
+            className="bg-yellow-500 text-white px-3 py-1 rounded-lg"
+            onClick={handleEdit} // Using the handler with dummy ID
+          >
             Edit
           </button>
         </div>
       </div>
       <button
         className="border-2 border-red-950 text-xl rounded-lg bg-blue-500 text-white font-bold m-2 p-2 w-1/2"
-        onClick={handleNavigate}
+        onClick={handleAdd}
       >
         Add +
       </button>
